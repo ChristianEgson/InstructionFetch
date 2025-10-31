@@ -24,5 +24,7 @@ Modules included:
 ---
 
 
-### Example Output
+### Example Waverform
+<img width="1704" height="1032" alt="image" src="https://github.com/user-attachments/assets/f00ae17d-420a-4722-bb72-948f4da3c422" />
+
 
