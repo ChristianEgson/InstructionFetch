@@ -22,7 +22,8 @@
 
 module memory(
     input wire        clk, 
-    output reg [31:0] data, 
+    input wire        reset,
+    output reg [31:0] data = 0, 
     input wire [31:0] addr 
 );
 
@@ -39,10 +40,14 @@ module memory(
         mem[7] = 32'h70000077;
         mem[8] = 32'h80000088;
         mem[9] = 32'h90000099;
+        mem[10] = 32'hB00000BB;
     end 
     
-    always @(posedge clk) begin
-        data <= mem[addr[31:2]];
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            data <= 0;
+        end else 
+            data <= mem[addr[31:2]];
     end
     //assign data = mem[addr[31:2]]; 
 endmodule
